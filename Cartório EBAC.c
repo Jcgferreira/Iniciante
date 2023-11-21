@@ -5,7 +5,9 @@
 
 int registro () //função de registro
 {
-	setlocale(LC_ALL, "Portuguese"); 
+	setlocale(LC_ALL, "Portuguese");
+	
+	int opcao = 0;
 	
 	char arquivo[40]; //variavel/string
 	char nome [40];
@@ -63,8 +65,24 @@ int registro () //função de registro
 	fprintf(file,idade);
 	fclose(file);
 	
-	printf("Dados inseridos com sucesso!\n");
-	system("pause");
+	printf("Dados inseridos com sucesso!\n\n");
+	printf("\t1 Repetir a operação\n\n");
+	printf("\t2 Voltar ao menu\n\n");
+	
+	printf("Digite a opção que deseja: \n\n");
+	
+	scanf("%d", &opcao);
+	
+	switch (opcao)
+		{
+			case 1:
+			registro();
+			break;
+			
+			case 2:
+			printf("Voltando ao menu!\n");
+			system("pause");
+		}
 }
 
 int consulta () //função de consulta
@@ -138,7 +156,9 @@ int main () // menu principal
 		printf("Escolha a operação desejada:\n\n");
 		printf("\t1 - Registrar inscrições\n\n");
 		printf("\t2 - Consulta de dados\n\n");
-		printf("\t3 - Deletar aluno\n\n\n");
+		printf("\t3 - Deletar aluno\n\n");
+		printf("\t4 - Deseja fechar o programa\n\n");
+		
 		printf("Digite o numero correspondente: "); //fim do menu
 	
 		scanf("%d", &opcao); //armazenando resposta do usuário
@@ -158,6 +178,12 @@ int main () // menu principal
 				case 3:
 				deletar(); //ultima opção possível para o usuário
 				break;
+				
+				case 4:
+				printf ("Obrigado por ultilizar o programa!");
+				return 0;
+				break;
+				
 				
 				default: //Caso de opção inválida
 				printf("OPÇÃO INVÁLIDA\n"); 
