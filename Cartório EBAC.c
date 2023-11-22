@@ -7,6 +7,8 @@ int registro () //função de registro
 {
 	setlocale(LC_ALL, "Portuguese");
 	
+	system("cls");
+	
 	int opcao = 0;
 	
 	char arquivo[40]; //variavel/string
@@ -36,7 +38,7 @@ int registro () //função de registro
 	fprintf(file," - ");
 	fclose(file); //fechando o arquivo
 	
-	printf("Insira seu nome: ");
+	printf("Insira o nome: ");
 	scanf("%s",nome);
 	
 	file = fopen(arquivo,"a"); // atualizando o arquivo
@@ -47,7 +49,7 @@ int registro () //função de registro
 	fprintf(file," - ");
 	fclose(file);
 	
-	printf("Insira seu sobrenome: ");
+	printf("Insira a idade: ");
 	scanf("%s", sobrenome);
 	
 	file = fopen(arquivo, "a");
@@ -58,7 +60,7 @@ int registro () //função de registro
 	fprintf(file," - ");
 	fclose(file);
 	
-	printf("Insira sua idade: "); //fim da coleta de dados
+	printf("Qual o sua posição na EBAC: "); //fim da coleta de dados
 	scanf("%s", idade);
 	
 	file = fopen(arquivo, "a");
@@ -82,6 +84,11 @@ int registro () //função de registro
 			case 2:
 			printf("Voltando ao menu!\n");
 			system("pause");
+			
+			case 3:
+			printf("Até um outro dia!!");
+			return 0; //Este return não esta sendo executado
+			break;
 		}
 }
 
@@ -89,8 +96,12 @@ int consulta () //função de consulta
 {
 	setlocale(LC_ALL, "Portuguese");
 	
+	int opcao = 0;
+		
 	char cpf [40];
 	char conteudo[200];
+	
+	system ("cls");
 	
 	printf("Menu de consulta de dados, insira o CPF do Aluno: \n");
 	scanf("%s", cpf);
@@ -110,11 +121,36 @@ int consulta () //função de consulta
 		printf("%s", conteudo);
 		printf("\n\n");
 		system("pause");
+		
+		printf("Deseja consultar novos dados? :\n\n");
+		printf("\t1 Sim");
+		printf("\t2 Não\n\n");
+		printf("Digite 1 ou 2: ");
+		scanf("%d", &opcao);
+		{
+		if (opcao == 1)
+		{
+		 	consulta();
+		}
+		else
+		{
+			printf("Voltando ao menu principal\n\n");
+			system ("pause");
+			return 0; 	
+		}
+		}
+		
+			
+			
 	}
 }
 
 int deletar () //função de deletar cadastros
 {
+	
+	system("cls");
+	
+	int opcao = 0;
 	char cpf [40];
 	
 	printf("Para prosseguir, insira o CPF do aluno que deseja deletar: \n"); 
@@ -130,6 +166,21 @@ int deletar () //função de deletar cadastros
 	if(file/*1*/ == NULL)
 	{
 		printf("Usuário deletado. CPF não consta no sistema.\n");
+		system("pause");
+	}
+	
+	printf("Deseja repetir a operação:\n\n");
+	printf("\t1 Sim");
+	printf("\t2 Não\n\n");
+	scanf("%d", &opcao);
+	
+	if (opcao == 1)
+	{
+		deletar();
+	}
+	else
+	{
+		printf("Voltando ao menu\n\n");
 		system("pause");
 	}
 } // fim das funções do menu
@@ -152,11 +203,11 @@ int main () // menu principal
 		setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 	
 	
-		printf("### Centro de registros de alunos ###\n\n"); //inicio do menu
+		printf("### Centro de registros da EBAC ###\n\n"); //inicio do menu
 		printf("Escolha a operação desejada:\n\n");
-		printf("\t1 - Registrar inscrições\n\n");
+		printf("\t1 - Registrar Aluno ou funcionário\n\n");
 		printf("\t2 - Consulta de dados\n\n");
-		printf("\t3 - Deletar aluno\n\n");
+		printf("\t3 - Deletar dados\n\n");
 		printf("\t4 - Deseja fechar o programa\n\n");
 		
 		printf("Digite o numero correspondente: "); //fim do menu
