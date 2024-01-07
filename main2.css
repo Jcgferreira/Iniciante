@@ -1,0 +1,127 @@
+/*configurando o layout da página*/
+* /*reset*/ {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+header .container /*disposição do cabeçalho*/{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*cabeçalho*/
+header li {
+    display: inline;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    margin-left: 16px;
+}
+
+.container /*limitando o espaço de cada noticia*/{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.articles/*definindo o modo de exibição*/ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.articles article img/*definindo o tamanho da imagem*/{
+    /* height: 180px; */
+    width: 100%; 
+}
+.articles article/*limitando o tamanho do texto*/ {
+    width: 30%;
+}
+
+.section {
+    padding: 16px 0;
+}
+
+section h2,
+.articles article {
+    margin-bottom: 16px;
+}
+
+.articles article h3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.articles article a {
+    background-color: rgb(62, 226, 171);
+    color: #fff;
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bolder;
+    margin-top: 6px;
+}
+
+.articles article a:hover{
+    text-decoration: underline;
+}
+/*fim da configuração do layout*/
+
+/*cores e estilos da pagina*/
+
+/*seletor {
+    propriedade: valor 
+*/
+
+h2 {
+    color: black;
+}
+
+#TV /*seleção através do id*/ h2 {
+    color: black;
+}
+
+.creation_date /*seleção atraves da classe*/ {
+    color: darkslategrey;
+}
+
+/* * -TODOS ELEMENTOS SEM DEFINIÇÕES- {
+    color: slategray;
+} */
+
+body >/*definido o filho direto do body*/ header /*cor de fundo do cabeçalho*/ {
+    background-color: #2f3640;
+    padding: 16px 0;
+    color: beige;
+}
+
+header li a {
+    color: beige;
+    text-decoration: none;
+}
+
+.articles article p,
+.articles article a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+}
+
+.articles article h3 {
+    font-size: 20px
+}
+
+section h2 {
+    font-size: 28px;
+}
+
+#sports {
+    background-color: rgba(0, 252, 13, 0.205);
+}
+
+#TV {
+    background-color: plum;
+}
+
+#TV .articles article a{
+    background-color: purple
+}
